@@ -1,0 +1,223 @@
+body{
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #fff;
+}
+
+.container{
+    width: auto;
+    height: auto;
+    border-style: solid;
+    border-color: #000;
+    border-width: 0.1px;
+}
+
+.logo{
+    width: 15%;
+    height: auto;
+    max-width: 20%;
+}
+
+.navbar-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    margin: 5px;
+}
+
+.navbar-list li{
+    display: block;
+    margin-right: 20px;
+}
+
+.banner{
+    width: 100vw;
+    height: 95vh;
+    background-image: url('/public/General\ img/imgs/Banner.png');
+    background-size: cover;
+
+}
+
+.banner h1{
+    padding-left: 5%;
+    padding-top: 15%;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.conocenos{
+    width: 100vw;
+    height: 65vh;
+}
+
+.conocenos h2{
+    font-size: 2.3em;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 2%;
+}
+
+.conocenos p{
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: 250;
+    padding-top: 5%;
+    padding-left: 29%;
+    padding-right: 29%;
+}
+
+.conocenos div{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 5%;
+    margin-bottom: 15%;
+}
+
+.conocenos div > button{
+    width: 10vw;
+    height: 8vh;
+}
+
+.acercade{
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+}
+
+.acercade > div > img{
+    width: 50vw;
+    height: 100%;
+}
+
+.acercade-grid{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+    gap: 0px;
+}
+
+.acercade-grid  div{
+    font-size: 1rem;
+    
+}
+
+.acercade-grid > div > p{
+    text-align: center;
+    padding: 20%;
+    padding-top: 5%;
+}
+
+.acercade-grid > div > img{
+    width: 100%;
+    height: 100%;
+}
+
+.encabezado{
+    font-size: 1.3em;
+    text-align: center;
+    font-weight: 600;
+    padding-top: 10%;
+
+}
+
+.personal{
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+    gap: 0px;
+}
+
+.personal img{
+    width: 100%;
+}
+
+.personal > div{
+    text-align: center;   
+    padding-top: 5%;
+}
+
+.personal > div > span{
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.personal > div > p{
+    font-size: 1.2rem;
+    padding-top: 15%;
+}
+
+.consultorio{
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+    gap: 0px;
+}
+
+.consultorio > img{
+    width: 100%;
+    height: 100%;
+}
+
+.consultorio-grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    gap: 0px;
+}
+
+.consultorio-grid-desc {
+    font-size: 1.2em;
+    text-align: center;
+    padding-top: 10%;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.consultorio-grid-desc > p{
+    padding-top: 10%;
+    font-size: 1em;
+}
+
+.consultorio-grid > div > img{
+    width: 100%;
+    height: 100%;
+}
+
+.consultorio-grid > iframe{
+    width: 100%;
+    height: 100%;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 20vh;
+}
+
+footer > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+footer > div > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5%;
+
+}

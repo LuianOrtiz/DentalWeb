@@ -57,6 +57,14 @@ nav{
     text-align: left;
 }
 
+.banner-agendar{
+    width: 100vw;
+    height: 30vh;
+    background-image: url('/public/General\ img/imgs/banner2.png');
+    background-size: cover;
+    background-position: 0;
+}
+
 .conocenos{
     width: 100vw;
     height: 65vh;
@@ -219,5 +227,41 @@ footer > div > div{
     align-items: center;
     justify-content: space-between;
     margin: 5%;
+}
 
+.grid-servicios{
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+    gap: 0px;
+}
+
+.servicios{
+    display: list-item;
+    width: 50vw;
+    height: auto;
+    padding-top: 3%;
+    padding-left: 3%;
+}
+
+.servicios > h1{
+    font-size: 2em;
+
+}
+
+.agendar{
+    width: 50vw;
+    height: auto;
+    padding-top: 3%;
+    padding-left: 3%;
+}
+
+.grid-resenias{
+    display: grid;
+    grid-template-columns: 33vw 33vw 33vw;
+    gap: 0px;
+}
+
+.resenia{
+    width: 100%;
+    height: 100%;
 }

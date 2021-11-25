@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <rect width="1400" height="1400" fill="gray" />
+    <text x="0" y="30" fill="black" font-size="24" stroke="#201f1f">
+        Queremos verte sonreir
+    </text>
+    <text x="50%" y="25%"  alignment-baseline="middle" text-anchor="middle" fill="black" font-size="11" stroke="#201f1f">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Magnam culpa fuga voluptatibus iste odit quaerat doloremque doloribus neque accusamus
+    </text>
+</svg>

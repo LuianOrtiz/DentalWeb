@@ -44,7 +44,7 @@ nav{
 .banner{
     width: 100vw;
     height: 95vh;
-    background-image: url('/public/General\ img/imgs/Banner.png');
+    background-image: url('/public/assets/imgs/Banner.jpg');
     background-size: cover;
 
 }
@@ -60,7 +60,7 @@ nav{
 .banner-agendar{
     width: 100vw;
     height: 30vh;
-    background-image: url('/public/General\ img/imgs/banner2.png');
+    background-image: url('/public/assets/imgs/BannerCita.jpg');
     background-size: cover;
     background-position: 0;
 }

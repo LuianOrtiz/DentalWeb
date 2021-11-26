@@ -1,8 +1,6 @@
 body{
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
 nav{
@@ -30,17 +28,18 @@ nav{
 
 .navbar-list{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     align-content: center;
-    margin: 5px;
+    margin: 10px;
 }
 
 .navbar-list li{
     display: block;
     margin-right: 20px;
+    justify-content: space-between;
 }
-
+/*Banner*/
 .banner{
     width: 100vw;
     height: 95vh;
@@ -64,177 +63,177 @@ nav{
     background-size: cover;
     background-position: 0;
 }
-
+/*Conocenos*/
 .conocenos{
     width: 100vw;
-    height: 65vh;
-}
-
-.conocenos h2{
-    font-size: 2.3em;
-    font-weight: bold;
-    text-align: center;
-    padding-top: 5%;
-    padding-bottom: 2%;
-}
-
-.conocenos p{
-    font-size: 1.3rem;
-    text-align: center;
-    font-weight: 250;
-    padding-top: 5%;
-    padding-left: 29%;
-    padding-right: 29%;
-}
-
-.conocenos div{
+    height: fit-content;
     display: flex;
-    align-content: center;
+    flex-direction: column;
+    border: 0.1px solid #000;
+}
+
+.conocenos > h2, .texto{
+    display: flex;
     justify-content: center;
-    padding: 5%;
-    margin-bottom: 15%;
+    text-align: center;
 }
 
-.conocenos div > button{
-    width: 10vw;
-    height: 8vh;
+.conocenos > h2 {
+    margin-top: 5%;
 }
 
-.acercade{
+.texto{
+    margin: 5%;
+}
+
+.boton{
     display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+/**/
+/*Acerca de nosotros*/
+.acercade{
     width: 100vw;
-    height: 80vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    border: 0.1px solid #000;
 }
 
-.acercade > div > img{
-    width: 50vw;
-    height: 100%;
+img{
+    width: 100%;
+    height: auto;
 }
 
 .acercade-grid{
+    width: 50vw;
+    height: auto;
     display: grid;
-    grid-template-rows: 50% 50%;
     grid-template-columns: 50% 50%;
-    gap: 0px;
-}
-
-.acercade-grid  div{
-    font-size: 1rem;
-    
-}
-
-.acercade-grid > div > p{
-    text-align: center;
-    padding: 20%;
-    padding-top: 5%;
-}
-
-.acercade-grid > div > img{
-    width: 100%;
-    height: 100%;
+    grid-template-rows: 50% 50%;
 }
 
 .encabezado{
-    font-size: 1.3em;
     text-align: center;
-    font-weight: 600;
-    padding-top: 10%;
-
 }
 
-.personal{
-    display: grid;
-    grid-template-columns: 50vw 50vw;
-    gap: 0px;
+.container > p {
+    max-height: max-content;
+    text-align: center;
 }
 
-.personal img{
+#img-clinica{
+    margin: 0;
+    padding: 0;
+    width: 50vw;
+    height: 80vh;
+    background-image: url(../assets/imgs/ClinicaNosotros.jpg);
+    background-size: 100% 100%;
+}
+
+#img-doctor{
+    margin: 0;
+    padding: 0;
     width: 100%;
+    height: auto;
+    background-image: url(../assets/imgs/DoctorNosotros.jpg);
+    background-size: 100% 100%;
 }
 
-.personal > div{
-    text-align: center;   
-    padding-top: 5%;
-    border-color: #000;
-    border-width: 2px;
-    border-style: solid;
+#img-nosotros{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background-image: url(../assets/imgs/NosotrosSonrisa.jpg);
+    background-size: 100% 100%;
 }
-
-.personal > div > span{
-    font-weight: 600;
-    font-size: 1.5em;
+/**/
+/*Personal*/
+.carousel-item{
+    max-height: 90vh;
 }
-
-.personal > div > p{
-    font-size: 1.2rem;
-    padding-top: 15%;
-}
-
+/**/
+/*Consultorio*/
 .consultorio{
-    display: grid;
-    grid-template-columns: 50vw 50vw;
-    gap: 0px;
-}
-
-.consultorio > img{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
 }
 
 .consultorio-grid{
+    width: 50vw;
+    height: auto;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
-    gap: 0px;
 }
 
-.consultorio-grid-desc {
-    font-size: 1.2em;
-    text-align: center;
-    padding-top: 10%;
-    padding-left: 8%;
-    padding-right: 8%;
+.iframe-container {
+    border: 0.1px solid #000;
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative;
 }
 
-.consultorio-grid-desc > p{
-    padding-top: 10%;
-    font-size: 1em;
-}
-
-.consultorio-grid > div > img{
-    width: 100%;
+.iframe-container iframe {
+    border: 0;
     height: 100%;
-}
-
-.consultorio-grid > iframe{
+    left: 0;
+    position: absolute;
+    top: 0;
     width: 100%;
-    height: 100%;
+ }
+
+#img-clinicaconsultorio{
+    margin: 0;
+    padding: 0;
+    width: 50vw;
+    height: 80vh;
+    background-image: url(../assets/imgs/ClinicaConsultorio.png);
+    background-size: 100% 100%;
 }
 
+#img-clinicaHerramientas2{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background-image: url(../assets/imgs/ClinicaHerramientas2.jpg);
+    background-size: 100% 100%;
+}
+/**/
 footer{
     background-color: #6892d5;
     display: flex;
     align-items: center;
+    flex-direction: row;
     justify-content: space-around;
     width: 100vw;
-    height: 20vh;
+    height: 15vh;
 }
 
-footer > div{
+.footer-sociales{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    
-}
-footer > div > div{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 5%;
-    
+    margin-right: 5%;
 }
 
+.whatsapp{
+    margin-right: 0.25rem;
+    width: 20px;
+    height: auto;
+}
+
+.facebook{
+    margin-right: 0.25rem;
+    width: 20px;
+    height: auto;
+}
+/*Agendar*/
 .grid-servicios{
     display: grid;
     grid-template-columns: 50% 50%;

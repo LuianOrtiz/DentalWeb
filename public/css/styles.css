@@ -6,7 +6,7 @@ body{
 }
 
 nav{
-    width: 100vw;
+    width: 100%;
     height: auto;
     display: flex;
     align-items: center;
@@ -14,7 +14,7 @@ nav{
     background-color: #fff;
 }
 
-.container{
+.container-b{
     width: auto;
     height: auto;
     border-style: solid;
@@ -58,11 +58,10 @@ nav{
 }
 
 .banner-agendar{
-    width: 100vw;
+    width: 100%;
     height: 30vh;
     background-image: url('/public/assets/imgs/BannerCita.jpg');
     background-size: cover;
-    background-position: 0;
 }
 
 .conocenos{
@@ -216,7 +215,7 @@ footer{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 100vw;
+    width: 100%;
     height: 20vh;
 }
 
@@ -231,7 +230,6 @@ footer > div > div{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 5%;
     
 }
 
@@ -242,11 +240,9 @@ footer > div > div{
 }
 
 .servicios{
-    display: list-item;
-    width: 50vw;
+    width: 100%;
     height: auto;
-    padding-top: 3%;
-    padding-left: 3%;
+    padding: 2em;
 }
 
 .servicios > h1{
@@ -255,26 +251,38 @@ footer > div > div{
 }
 
 .agendar{
-    width: 50%;
+    width: 100%;
     height: auto;
-    padding-top: 3%;
-    padding-left: 3%;
+    padding-left: 2em;
 }
-.agendar-formulario{
-    margin: auto;
-    text-align:center;
+
+.resenias{
+    width: 100%;
+    height: auto;
 }
+
+.resenias > h2{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 10%;
+}
+
 
 .grid-resenias{
     display: grid;
-    grid-template-columns: 33vw 33vw 33vw;
+    grid-template-columns: 33% 33% 33%;
     gap: 0px;
 }
 
 .resenia{
     width: 100%;
     height: 100%;
+    padding: 2em;
+    text-align: center;
 }
+
 
 .boton-personalizado-4 {
     text-decoration:none;
@@ -301,16 +309,54 @@ footer > div > div{
     a:link, a:visited, a:active {
         text-decoration:none;
     } 
-   
-.consultar{
-    font-size: 1.3rem;
-    text-align: left;
-    font-weight: 250;
-    padding-top: 5%;
-    padding-right: 29%;
-    border-color: #000;
-    border-width: 2px;
-    border-style: solid;
+
+.form-agendar{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
 }
 
+label{
+    font-weight: bold;
+    font-size: 1.25em;
+}
 
+input{
+    background-color: #EEECEC;
+    border-color: #6892D5;
+    width: 30%;
+    height: 3em;
+    
+}
+
+#btn-agendar{
+    align-self: flex-end;
+    margin-top: 5%;
+}
+
+.consultar{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: auto;
+}
+
+.consultar > div{
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+}
+
+.consultar > h2{
+    font-weight: bold;
+}
+
+#consultar-folio{
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#btn-consultar{
+    align-self: flex-end;
+}

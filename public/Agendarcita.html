@@ -17,6 +17,8 @@
 </head>
 
 <body>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <header>
         <nav>
             <!--logo-->
@@ -42,311 +44,40 @@
     <!--Servicios-->
     <section>
         <div class="grid-servicios">
-            <div class="servicios container-b">
+            <div class="servicios container-b" id="servicios">
                 <h1>Contamos con los siguientes servicios</h1>
                 <ul>
-                    <!--Spa dental-->
-                    <li>
-                        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#spadental"
-                            aria-expanded="false" aria-controls="spadental">
-                            Spa Dental
+                    <li v-for="item in todoData">
+
+                        <button class="btn" type="button" data-bs-toggle="collapse" v-bind:data-bs-target="item.privateid"
+                        aria-expanded="false" v-bind:aria-controls="item.id">
+                        {{ item.buttonText }}
                         </button>
 
-                        <div class="collapse" id="spadental">
+                        <div class="collapse" v-bind:id="item.id">
                             <div class="card card-body">
-                                Dentro de Dental Group contamos con el servicio de SPA DENTAL, que consiste en consentir
-                                a
-                                su
-                                boca para
-                                lograr una buena salud dental.<br>
-                                Utilizamos un sistema LÁSER que permite tratar las siguientes molestias:<br>
-                                <ul>
-                                    <li>Inflamación causadas por extracciones.</li>
-                                    <li>Inflamación causadas por infecciones.</li>
-                                    <li>Dolor post-operatorio.</li>
-                                    <li>Agilizar la cicatrización.</li>
-                                    <li>Estres muscular causadas por las muelas del juicio.</li>
+                                <span>{{ item.cardText }}</span>
+                                <ul v-if="item.li === 'true'" v-for="data in item.liData">
+                                    <br>
+                                    <li><strong>{{ data.text }}</strong></li>
+                                    {{ data.des }}
+                                </ul>
+                                <ul v-else="item.li === 'false'">
+                                    <br>{{ data.des }}
                                 </ul>
                             </div>
                         </div>
-                    </li>
 
-                    <!--Limpieza Dental-->
-                    <li>
-                        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#limpiezadental"
-                            aria-expanded="false" aria-controls="limpiezadental">
-                            Limpieza dental
-                        </button>
-
-                        <div class="collapse" id="limpiezadental">
-                            <div class="card card-body">
-                                La limpieza dental consiste en retirar el sarro, manchas generadas por el tabaco, café,
-                                bebidas
-                                de color
-                                oscuro, refresco de cola, comida.<br>
-                                Esta limpieza se hace con un sistema de vibración ultrasónico que permite desprender con
-                                mayor
-                                facilidad
-                                el sarro sin generar dolor en las encías.<br>
-                                Después de un tratamiento de ortodoncia generalmente se debe de realizar una limpieza
-                                para
-                                retirar los
-                                residuos de pegamento para los brackets y manchas de comida.<br>
-                                Se recomienda una limpieza periódicamente para prevenir enfermedades de las encías y
-                                algunas
-                                otras que
-                                pudieran provocar la pérdida prematura de dientes.<br>
-                                <ul>
-                                    <li>Inflamación causadas por extracciones.</li>
-                                    <li>Inflamación causadas por infecciones.</li>
-                                    <li>Dolor post-operatorio.</li>
-                                    <li>Agilizar la cicatrización.</li>
-                                    <li>Estres muscular causadas por las muelas del juicio.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!--Endodoncia-->
-                    <li>
-                        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#endodoncia"
-                            aria-expanded="false" aria-controls="endodoncia">
-                            Endodoncia
-                        </button>
-
-                        <div class="collapse" id="endodoncia">
-                            <div class="card card-body">
-                                Este tratamiento se realiza cuando se presentan algunas lesiones que causan infección en
-                                el
-                                interior del
-                                diente donde están contenidos los vasos sanguíneos y nervios.<br>
-                                Cuando una infección ha dañado el nervio y no puede repararse así mismo, pierde su
-                                resistencia.<br>
-                                Las causas más comunes para la práctica de la endodoncia son:
-                                <ul>
-                                    <li>Caries profundas.</li>
-                                    <li>Fracturas de los dientes.</li>
-                                    <li>Enfermedad periodontal.</li>
-                                    <li>Todas ellas pueden permitir la entrada de bacterias y sus productos al interior
-                                        del
-                                        diente.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!--Periodoncia-->
-                    <li>
-                        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#periodoncia"
-                            aria-expanded="false" aria-controls="periodoncia">
-                            Periodoncia
-                        </button>
-
-                        <div class="collapse" id="periodoncia">
-                            <div class="card card-body">
-                                Las enfermedades periodontales son infecciones que afectan a los tejidos y al hueso que
-                                sirve de sostén
-                                a los dientes (raíces).<br>
-                                Estos son algunos signos de advertencia pueden indicar que hay un problema periodontal:
-                                <ul>
-                                    <li>Encías que sangran con facilidad.</li>
-                                    <li>Encías enrojecidas, hinchadas o sensibles.</li>
-                                    <li>Mal aliento persistente.</li>
-                                    <li>Dientes sueltos o que están separándose.</li>
-                                    <li>Pus entre los dientes y la encía, etc.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!--Implantologia-->
-                    <li>
-                        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#implantologia"
-                            aria-expanded="false" aria-controls="implantologia">
-                            Implantología
-                        </button>
-
-                        <div class="collapse" id="implantologia">
-                            <div class="card card-body">
-                                <b>¿Cómo son los implantes?</b><br>
-                                Los implantes dentales oseointegrados son unos dispositivos de titanio, con diferentes
-                                tratamientos y
-                                recubrimientos de superficie.<br>
-                                Su función es la de sustituir las raíces de los dientes naturales, sirviendo de soporte
-                                para la
-                                conexión, a través de los componentes protésicos,<br>
-                                con la restauración definitiva, proporcionando confort, ajuste y estética.<br>
-
-                                <b>¿Cómo se colocan?</b><br>
-                                A cualquier edad, siempre y cuando la calidad y cantidad del hueso receptor sea la
-                                adecuada. En el caso
-                                de que la cantidad de hueso sea insuficiente,<br>
-                                se podrán aplicar técnicas de aporte óseo mediante injertos.<br>
-
-                                <b>¿A quién se colocan?</b><br>
-                                Los implantes están indicados en la mayoría de las personas que llevan prótesis
-                                completas, o bien
-                                precisan la colocación de un puente o pieza dentaria aislada,<br>
-                                ya que en este caso no es necesario modificar los dientes adyacentes que pudieran estar
-                                sanos. Las
-                                contraindicaciones absolutas por otras enfermedades son escasas.
-                            </div>
-                        </div>
-                    </li>
-
-                    <!--Diseno de sonrisa-->
-                    <li>
-                        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#disenosonrisa"
-                            aria-expanded="false" aria-controls="disenosonrisa">
-                            Diseño de sonrisa
-                        </button>
-
-                        <div class="collapse" id="disenosonrisa">
-                            <div class="card card-body">
-                                <p>
-                                    El diseño de sonrisa es un proceso de estética dental que brinda formas y alineación
-                                    correcta a sus
-                                    dientes acordes con las características de su rostro.
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!--Estetica dental-->
-                    <li>
-                        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#estetica"
-                            aria-expanded="false" aria-controls="estetica">
-                            Estetica dental
-                        </button>
-
-                        <div class="collapse" id="estetica">
-                            <div class="card card-body">
-                                Dentro de la estética dental contamos con los siguientes servicios:
-                                <ul>
-                                    <li><b>Blanqueamiento Dental.</b></li> Que consiste en dejar los dientes más
-                                    blancos, esto se
-                                    realiza en una sola sesión, con el apoyo del láser.<br>
-                                    <li><b>Composites.</b></li> Se realiza el reemplazo de amalgamas con mercurio
-                                    (tóxico) por
-                                    composites del color del diente.<br>
-                                    <li><b>Incrustaciones Esteticas.</b></li>Reemplazan a incrustaciones metálicas por
-                                    incrustaciones
-                                    estéticas (del color del diente).<br>
-                                    <li><b>Diseño de Sonrisa.</b></li> Consiste en la toma de fotografías y estudios de
-                                    diagnóstico de
-                                    la mordida del paciente, para poder crear una mejor apariencia.<br>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!--Rehabilitación-->
-                    <li>
-                        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#rehabilitacion"
-                            aria-expanded="false" aria-controls="rehabilitacion">
-                            Rehabilitación
-                        </button>
-
-                        <div class="collapse" id="rehabilitacion">
-                            <div class="card card-body">
-                                Es un servicio que le permite al paciente devolver la forma y la funcionalidad a sus
-                                dientes, es decir,
-                                volver a darle apariencia y estética al diente<br>
-                                a través de la aplicación de composites (resina nano híbrida) e incrustaciones
-                                estéticas, las cuales son
-                                colocadas y secadas a través de la aplicación<br>
-                                de luz ultravioleta para un mejor sellado, rápido y eficiente.<br>
-                                El procedimiento de rehabilitación dental también se aplica:
-                                <ul>
-                                    <li>Retirar una caries.</li>
-                                    <li>Después de un tratamiento de endodoncia.</li>
-                                    <li>Cuando se fractura un diente.</li>
-                                    <li>Cuando ha perdido alguna o varias piezas dentales.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!--Cirugía Bucal-->
-                    <li>
-                        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#cirugia"
-                            aria-expanded="false" aria-controls="cirugia">
-                            Cirugía Bucal
-                        </button>
-
-                        <div class="collapse" id="cirugia">
-                            <div class="card card-body">
-                                En Dental Group contamos con el servicio de cirugía bucal.<br>
-                                Se recurre a esta atención cuando se trata de alguna anomalía, tal como:
-                                <ul>
-                                    <li>Dientes superiores que se desvían de su posición normal y aparecen en el
-                                        paladar; esto
-                                        representa un riesgo para las otras piezas.</li>
-                                    <li>Extracciones de muelas del juicio.</li>
-                                    <li>Extracción de quistes de origen dental.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!--Apicectomía-->
-                    <li>
-                        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#apicectomia"
-                            aria-expanded="false" aria-controls="apicectomia">
-                            Apicectomía
-                        </button>
-
-                        <div class="collapse" id="apicectomia">
-                            <div class="card card-body">
-                                La apicectomía se realiza cuando se ha presentado una infección en un diente y a pesar
-                                de haber
-                                recurrido a la endodoncia, ésta persiste o continúa.<br>
-                                Consiste en cortar la punta de la raíz de un diente aproximadamente de 2 a 3mm para
-                                eliminar dicha
-                                infección.
-                            </div>
-                        </div>
-                    </li>
-
-                    <!--Ortodoncia-->
-                    <li>
-                        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#ortodoncia"
-                            aria-expanded="false" aria-controls="ortodoncia">
-                            Ortodoncia
-                        </button>
-
-                        <div class="collapse" id="ortodoncia">
-                            <div class="card card-body">
-                                Área que se encarga de tratar y corregir las alteraciones de las irregularidades de los
-                                dientes,
-                                mordidas y maxilares,<br>
-                                para mejorar la calidad de vida, buscando equilibrar el funcionamiento de todos los
-                                elementos que son
-                                importantes para masticar correctamente.
-                            </div>
-                        </div>
                     </li>
                 </ul>
             </div>
-            <div class="agendar container-b">
+            <div class="agendar container-b" id="agendar-cita">
                 <h2>Agenda tu cita</h2>
-                
-                    <form class="form-agendar">
-                        <label for="fullName"> Nombre completo </label><br>
-                        <input type="text" id="fullName" name="fullName"><br>
-                        <label for="email"> Correo </label><br>
-                        <input type="email" id="email" name="email"><br>
-                        <label for="phone"> Telefono </label><br>
-                        <input type="number" id="phone" name="phone"><br>
-                        <label for="service"> Servicio </label><br>
-                        <input type="text" id="service" name="service"><br>
-                        <label for="date"> Fecha </label><br>
-                        <input type="date" id="date" name="date"><br>
-                        <label for="time"> Hora </label><br>
-                        <input type="time" id="time" name="time"><br>
-                        <button class="boton-personalizado-4 mb-5" id="btn-agendar">Agendar</button>
+                    <form class="form-agendar" v-for="todo in todos">
+                        <label v-bind:for="todo.id"> {{ todo.des }} </label><br>
+                        <input v-bind:type="todo.type" v-bind:id="todo.id" v-bind:name="todo.id"><br><br><br>
                     </form>
+                    <button class="boton-personalizado-4 mb-5" id="btn-agendar">Agendar</button>
             </div>
         </div>
     </section>
@@ -371,26 +102,10 @@
     <!--Reseñas-->
     <section class="resenias">
         <h2>Reseñas</h2>
-        <div class="grid-resenias">
-            <div class="resenia">
-                <p> Me gusta el ambiente relajado y te van explicando los procedimientos de forma que crea
-                    seguridad ir al dentista. Eso combinado con su excelente calidad de servicio al cliente y su nivel de
-                    limpieza los pone por mucho por encima de otros consultorios dentales. 
-                </p>
-                <b>Juan Carlos</b>
-            </div>
-            <div class="resenia">
-                <p> Todo mi cuidado dental lo he llevado en esta clínica desde hace años. Siempre he tenido
-                    buenas experiencias ahí.
-                </p>
-                <b>Cesar Chavez</b>
-            </div>
-            <div class="resenia">
-                <p> A diferencia del trauma que normalmente nos puede causar, el saber que tendremos que
-                    enfrentarnos a un sillón en un consultorio dental, para mí ha sido una experiencia totalmente diferente,
-                    debido al trato tan profesional, gracias!.
-                </p>
-                <b>Rocio Durcal</b>
+        <div class="grid-resenias" id="grid-rs">
+            <div class="resenia" v-for="inf in prt">
+                <p>{{ inf.text }}</p>
+                <b>{{ inf.name }}</b>
             </div>
         </div>
     </section>
@@ -403,7 +118,7 @@
                 <img src="assets/icons/wa2.png" style="width: 20px;">
             </div>
             <p style="margin-right: 5%;">4431234567</p>
-            <div class="facebook">
+            <div class="facebotrue">
                 <img src="assets/icons/fb.png" style="width: 20px;">
             </div>
             <p>consultorio_dentista</p>
@@ -411,6 +126,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="Scripts/General-Agendar.js"></script>
+    
 </body>
 
 </html>

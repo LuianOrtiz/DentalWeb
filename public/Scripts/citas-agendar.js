@@ -24,8 +24,6 @@ const fechCita = async() => {
     }))
 }
 
-//fetch('http://127.0.0.1:8000/api/citas', {method: 'POST', body: citaValores}).then(results => results.json()).then(console.log);
-
 const agendar = new Vue({
     el: '#agendar-cita',
   
@@ -56,7 +54,4 @@ const agendar = new Vue({
     },
 })
 
-
-
-//fetch('http://example.com/movies.json').then(response => response.json()).then(data => console.log(data));
 

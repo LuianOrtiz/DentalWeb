@@ -1,16 +1,18 @@
 
 let citaValores = [];
 var petiCita = {};
+var petUser = {};
+const url_paci = 'http://127.0.0.1:3000/paciente';
 const url_cita = 'http://127.0.0.1:3000/sendcita';
 
 
-function convertirJson(citaValores, petiCita){
-    petiCita.nombre_completo = citaValores[0];
-    petiCita.correo = citaValores[1];
-    petiCita.telefono = citaValores[2];
+function convertirJson(){
+    petUser.nombre = citaValores[0];
+    petUser.correo = citaValores[1];
+    petUser.telefono = citaValores[2];
     petiCita.servicio  = citaValores[3];
-    petiCita.fecha  = citaValores[4];
-    petiCita.hora = citaValores[5];
+    petiCita.fecha_cita  = citaValores[4];
+    petiCita.hora_cita = citaValores[5];
 }
 
 const fechCita = async() => {
@@ -18,6 +20,17 @@ const fechCita = async() => {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(petiCita),
+        headers:{
+            'Content-Type': 'application/json'
+            }
+    }))
+}
+
+const fechPaciente = async() => {
+    return await (await fetch(url_paci, {
+        method: 'POST',
+        credentials: 'include',
+        body: JSON.stringify(petUser),
         headers:{
             'Content-Type': 'application/json'
             }
@@ -45,10 +58,13 @@ const agendar = new Vue({
                 citaValores.push(this.valor);
             });
 
-            convertirJson(citaValores, petiCita); 
+            convertirJson(); 
             console.log(petiCita); 
+            console.log(petUser); 
             fechCita();
             console.log("DONE");
+            fechPaciente();
+            console.log("DONE x2 ");
         },  
 
     },

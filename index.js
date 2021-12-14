@@ -30,14 +30,20 @@ connection.connect(function(err){
 })
 
 app.get('/infocita/:id', (request, response) =>{
-    $query = 'SELECT A.fecha_cita, A.hora_cita, B.descripcion, C.nombre, D.cedula_profesional from citas A INNER JOIN servicios B ON A.id_servicio=B.id INNER JOIN pacientes C ON A.id_paciente=C.id INNER JOIN dentistas D ON A.id_dentista=D.id WHERE A.id='+request.params.id
-    consultar(request, response, $query);
+    console.log(request.body)
+    //$query = 'SELECT A.fecha_cita, A.hora_cita, B.descripcion, C.nombre, D.cedula_profesional from citas A INNER JOIN servicios B ON A.id_servicio=B.id INNER JOIN pacientes C ON A.id_paciente=C.id INNER JOIN dentistas D ON A.id_dentista=D.id WHERE A.id='+request.params.id
+    //consultar(request, response, $query);
 });
 
 app.get('/servicios', (request, response) =>{
     $query = 'SELECT id, descripcion FROM servicios'
     consultar(request, response, $query);
 });
+
+app.post('/paciente', (request, response) => {
+    console.log(request.body);
+});
+
 
 app.post('/sendcita', (request, response) => {
     console.log(request.body);

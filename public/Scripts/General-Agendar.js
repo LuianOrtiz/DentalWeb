@@ -12,19 +12,7 @@ const resenias = new Vue({
     }
 })
 
-const agendar = new Vue({
-    el: '#agendar-cita',
-    data:{
-        todos : [
-            {id : 'fullName', type : 'text', des: 'Nombre completo'},
-            {id : 'email', type : 'email', des: 'Correo'},
-            {id : 'phone', type : 'number', des: 'Telefono'},
-            {id : 'service', type : 'text', des: 'Servicio'},
-            {id : 'date', type : 'date', des: 'Fecha'},
-            {id : 'time', type : 'time', des: 'Hora'}
-        ]
-    }
-})
+
 
 const servicios = new Vue({
     el : '#servicios',

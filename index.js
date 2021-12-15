@@ -62,24 +62,11 @@ app.post('/sendcita', async (request, response) => {
 
     //$query_paciente = "Select max(id) as id FROM pacientes";
     
-    //$query_servicio = `SELECT id FROM servicios WHERE descripcion = '${request.body.servicio}'`;
+    $query_servicio = `SELECT id FROM servicios WHERE descripcion = '${request.body.servicio}'`;
     
     //let [id_pac,id_ser] = await Promise.all([sub_consultar(request, response, $query_paciente),sub_consultar(request, response, $query_servicio)])
-    var id_pac = Promise.resolve(getIdPac(request, response));
-    var id_ser = Promise.resolve(getIdSer(request, response));
+    sub_consultar(request, response, $query_servicio,sql)
     
-    const citaObj = {
-        fecha_cita: request.body.fecha_cita,
-        hora_cita: request.body.hora_cita,
-        id_servicio: 1,
-        id_paciente: 1,
-        id_dentista: 2
-    }
-    
-    connection.query(sql, citaObj, (error, rows, fields) => {
-        if(error) console.log(error);
-       console.log("cita creada");
-    });
     
 })
 
@@ -91,7 +78,7 @@ function getIdPac (request, response){
 }
 
 function getIdSer(request, response){
-    $query_servicio = `SELECT id FROM servicios WHERE descripcion = '${request.body.servicio}'`;
+    
     var id_ser = Promise.resolve( sub_consultar(request, response, $query_servicio));
     console.log("indi 2" +id_ser);
     return id_ser;
@@ -169,7 +156,9 @@ const consultar = async (req,res,$query) => {
     })
 }
 
-const sub_consultar = async (req,res,$query) => {
+const sub_consultar = async (req,res,$query, sql) => {
+    var id_ser;
+    $query_paciente = "Select max(id) as id FROM pacientes";
     connection.query($query, await function(err,rows,flieds){
         if(err){
             console.log(`Error al ejecutar la query. Error: ${err}`)
@@ -177,9 +166,48 @@ const sub_consultar = async (req,res,$query) => {
         }
 
         console.log("Consulta ejecutada con exito ",rows[0].id)
-        return rows[0].id;
+        id_ser = rows[0].id;
+        console.log("index: " + id_ser);
+        subsub_consultar(req, res, $query_paciente, sql, id_ser);
+    })
+}
+
+const subsub_consultar = async (req,res,$query, sql, id_ser) => {
+    
+    var id_pac;
+    connection.query($query, await function(err,rows,flieds){
+        if(err){
+            console.log(`Error al ejecutar la query. Error: ${err}`)
+            return;
+        }
+
+        console.log("Consulta ejecutada con exito ",rows[0].id)
+        id_pac = rows[0].id;
+        console.log("index-1: " + id_pac);
+        insertarCita(req, res, sql, id_ser, id_pac);
 
     })
+    console.log("index 0: " + id_pac);
+    console.log("index 1: " + id_ser);
+      
+}
+
+function insertarCita (request , response, sql, id_ser, id_pac){
+    console.log("--> " +request.body);
+    console.log("index 2: " + id_pac);
+    console.log("index 3: " + id_ser);
+    const citaObj = {
+        fecha_cita: request.body.fecha_cita,
+        hora_cita: request.body.hora_cita,
+        id_servicio: id_ser,
+        id_paciente: id_pac,
+        id_dentista: 2
+    }
+    
+    connection.query(sql, citaObj, (error, rows, fields) => {
+        if(error) console.log(error);
+       console.log("cita creada");
+    });
 }
 
 

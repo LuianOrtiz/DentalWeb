@@ -45,39 +45,46 @@ app.post('/paciente', (request, response) => {
     
     const sql = 'INSERT INTO pacientes SET ?';
 
-    const pacienteObj = {
-        nombre: request.body.nombre,
-        telefono: request.body.telefono,
-        correo: request.body.correo
-    }
+    console.log(request.body);
     
     connection.query(sql, request.body, error => {
         if(error) throw error;
-        res.send('Paciente creado');
+        console.log('Paciente creado');
     });
-    console.log(request.body);
 
 });
 
 
-app.post('/sendcita', (request, response) => {
+app.post('/sendcita', async (request, response) => {
     const sql = 'INSERT INTO citas SET ?';
+    console.log(request.body);
+
+    $query_paciente = "Select max(id) as id FROM pacientes";
+    
+    $query_servicio = `SELECT id FROM servicios WHERE descripcion = '${request.body.servicio}'`;
+    
+    let [id_pac,id_ser] = await Promise.all([sub_consultar(request, response, $query_paciente),sub_consultar(request, response, $query_servicio)])
 
     const citaObj = {
         fecha_cita: request.body.fecha_cita,
         hora_cita: request.body.hora_cita,
-        id_servicio: 10,
-        id_paciente: 9,
+        id_servicio: id_ser,
+        id_paciente: id_pac,
         id_dentista: 2
     }
     
-    connection.query(sql, citaObj, error => {
-        if(error) throw error;
-        res.send('cita creada');
+
+    connection.query(sql, citaObj, (error, rows, fields) => {
+        if(error) console.log(error);
+       console.log("cita creada");
     });
     
-    console.log(request.body);
 });
+
+function getIdServicio(request, response){
+    const sql = `SELECT max(id) FROM pacientes`;
+    consultar(request, response, sql);
+}
 
 const consultar = async (req,res,$query) => {
     connection.query($query, await function(err,rows,flieds){
@@ -93,5 +100,19 @@ const consultar = async (req,res,$query) => {
         })
     })
 }
+
+const sub_consultar = async (req,res,$query) => {
+    connection.query($query, await function(err,rows,flieds){
+        if(err){
+            console.log(`Error al ejecutar la query. Error: ${err}`)
+            return;
+        }
+
+        console.log("Consulta ejecutada con exito ",rows[0].id)
+        return rows[0].id;
+
+    })
+}
+
 
 app.listen(PORT, () => console.log(`Server running on port:${PORT}`))

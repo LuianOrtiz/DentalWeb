@@ -15,6 +15,7 @@ function convertirJson(){
     petiCita.servicio  = citaValores[3];
     petiCita.fecha_cita  = citaValores[4];
     petiCita.hora_cita = parseInt(citaValores[5],10);
+    petiCita.nombre_paciente = citaValores[0];
 }
 
 const fechCita = async() => {
@@ -23,9 +24,22 @@ const fechCita = async() => {
         credentials: 'include',
         body: JSON.stringify(petiCita),
         headers:{
-            'Content-Type': 'application/json'
+            'content-type': 'application/json'
             }
-    }))
+    }).then(function(response) {
+        if(response.ok) {
+            return response.text()
+        } else {
+            throw "Error en la llamada Ajax";
+        }
+     
+     })
+     .then(function(texto) {
+        console.log(texto);
+     })
+     .catch(function(err) {
+        console.log(err);
+     }))
 }
 
 const fechPaciente = async() => {
@@ -34,9 +48,23 @@ const fechPaciente = async() => {
         credentials: 'include',
         body: JSON.stringify(petUser),
         headers:{
-            'Content-Type': 'application/json'
+            'content-type': 'application/json'
             }
-    }))
+    }).then(function(response) {
+        if(response.ok) {
+            return response.text()
+        } else {
+            throw "Error en la llamada Ajax";
+        }
+     
+     })
+     .then(function(texto) {
+        console.log(texto);
+     })
+     .catch(function(err) {
+        console.log(err);
+     })
+    )
 }
 
 const fechServicios = async () => {
@@ -68,9 +96,9 @@ const agendar = new Vue({
                 citaValores.push(this.valor);
             });
 
-            convertirJson(); 
-            console.log(petiCita); 
-            console.log(petUser); 
+            convertirJson() 
+            //console.log(petiCita); 
+            //console.log(petUser); 
             fechPaciente();
             fechCita();
             alert("Cita creada con exito");

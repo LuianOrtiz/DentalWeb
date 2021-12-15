@@ -5,7 +5,8 @@ const app = express()
 app.use(express.json())
 const PORT = 3000;
 
-const cors = require("cors")
+const cors = require("cors");
+const res = require('express/lib/response');
 app.use(
     cors({
         origin: 'http://127.0.0.1:5500',
@@ -30,9 +31,9 @@ connection.connect(function(err){
 })
 
 app.get('/infocita/:id', (request, response) =>{
-    console.log(request.body)
-    //$query = 'SELECT A.fecha_cita, A.hora_cita, B.descripcion, C.nombre, D.cedula_profesional from citas A INNER JOIN servicios B ON A.id_servicio=B.id INNER JOIN pacientes C ON A.id_paciente=C.id INNER JOIN dentistas D ON A.id_dentista=D.id WHERE A.id='+request.params.id
-    //consultar(request, response, $query);
+    console.log(request.params.id);
+    $query = 'SELECT A.fecha_cita, A.hora_cita, B.descripcion, C.nombre, D.cedula_profesional from citas A INNER JOIN servicios B ON A.id_servicio=B.id INNER JOIN pacientes C ON A.id_paciente=C.id INNER JOIN dentistas D ON A.id_dentista=D.id WHERE A.id='+request.params.id
+    consultar(request, response, $query);
 });
 
 app.get('/servicios', (request, response) =>{
@@ -41,11 +42,40 @@ app.get('/servicios', (request, response) =>{
 });
 
 app.post('/paciente', (request, response) => {
+    
+    const sql = 'INSERT INTO pacientes SET ?';
+
+    const pacienteObj = {
+        nombre: request.body.nombre,
+        telefono: request.body.telefono,
+        correo: request.body.correo
+    }
+    
+    connection.query(sql, request.body, error => {
+        if(error) throw error;
+        res.send('Paciente creado');
+    });
     console.log(request.body);
+
 });
 
 
 app.post('/sendcita', (request, response) => {
+    const sql = 'INSERT INTO citas SET ?';
+
+    const citaObj = {
+        fecha_cita: request.body.fecha_cita,
+        hora_cita: request.body.hora_cita,
+        id_servicio: 10,
+        id_paciente: 9,
+        id_dentista: 2
+    }
+    
+    connection.query(sql, citaObj, error => {
+        if(error) throw error;
+        res.send('cita creada');
+    });
+    
     console.log(request.body);
 });
 

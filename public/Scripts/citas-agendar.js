@@ -2,8 +2,10 @@
 let citaValores = [];
 var petiCita = {};
 var petUser = {};
+
 const url_paci = 'http://127.0.0.1:3000/paciente';
 const url_cita = 'http://127.0.0.1:3000/sendcita';
+const url_servicios = 'http://127.0.0.1:3000/servicios';
 
 
 function convertirJson(){
@@ -12,7 +14,7 @@ function convertirJson(){
     petUser.telefono = citaValores[2];
     petiCita.servicio  = citaValores[3];
     petiCita.fecha_cita  = citaValores[4];
-    petiCita.hora_cita = citaValores[5];
+    petiCita.hora_cita = parseInt(citaValores[5],10);
 }
 
 const fechCita = async() => {
@@ -36,6 +38,14 @@ const fechPaciente = async() => {
             }
     }))
 }
+
+const fechServicios = async () => {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    return await (await fetch(url_servicios)).json();
+}
+
+
 
 const agendar = new Vue({
     el: '#agendar-cita',
@@ -61,13 +71,14 @@ const agendar = new Vue({
             convertirJson(); 
             console.log(petiCita); 
             console.log(petUser); 
-            fechCita();
-            console.log("DONE");
             fechPaciente();
-            console.log("DONE x2 ");
-        },  
+            fechCita();
+            alert("Cita creada con exito");
+            //console.log(fechServicios());
+        }
 
     },
 })
+
 
 

@@ -70,19 +70,6 @@ app.post('/sendcita', async (request, response) => {
     
 })
 
-function getIdPac (request, response){
-    $query_paciente = "Select max(id) as id FROM pacientes";
-    var id_pac = Promise.resolve(sub_consultar(request, response, $query_paciente));
-    console.log("indi 1" +id_pac);
-    return id_pac;
-}
-
-function getIdSer(request, response){
-    
-    var id_ser = Promise.resolve( sub_consultar(request, response, $query_servicio));
-    console.log("indi 2" +id_ser);
-    return id_ser;
-}
 
 /*
 app.post('/sendcita', async (request, response) => {

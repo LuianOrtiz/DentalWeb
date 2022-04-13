@@ -68,7 +68,7 @@ nav{
     height: fit-content;
     display: flex;
     flex-direction: column;
-    border: 0.1px solid #000;
+    border: 0.1px solid rgb(255, 255, 255);
 }
 
 .conocenos > h2, .texto{
@@ -97,7 +97,7 @@ nav{
     height: fit-content;
     display: flex;
     flex-direction: row;
-    border: 0.1px solid #000;
+    border: 0.1px solid rgb(255, 255, 255);
 }
 
 img{
@@ -168,6 +168,8 @@ img{
     max-height: 90vh;
 }
 /**/
+
+
 /*Consultorio*/
 .consultorio{
     width: 100vw;
@@ -185,7 +187,7 @@ img{
 }
 
 .iframe-container {
-    border: 0.1px solid #000;
+    border: 0.1px solid rgb(255, 255, 255);
     overflow: hidden;
     padding-top: 56.25%;
     position: relative;
@@ -219,13 +221,13 @@ img{
 }
 
 footer{
-    background-color: #6892d5;
+    background-color: #59d5fb;
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    height: 15vh;
+    height: 20vh;
 }
 
 .footer-sociales{
@@ -262,6 +264,13 @@ footer{
 .servicios > h1{
     font-size: 2em;
 
+}
+.servicios  li{
+    margin: 10px;
+    padding: 15px;
+}
+.servicios button{
+    font-size: 24px;
 }
 
 .agendar{
@@ -312,6 +321,7 @@ footer{
     border-width: 3px;
     border-style: solid;
     border-radius:10px;
+    margin-left: 150px;
     }
 
     a:hover{
@@ -324,7 +334,13 @@ footer{
         text-decoration:none;
     } 
 
+.agendar h2{
+    margin-left: 150px;
+    margin-top: 25px;
+}
+
 .form-agendar{
+    margin-left: 150px;
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-start;
@@ -359,6 +375,7 @@ input{
     display: flex;
     flex-direction: column;
     padding: 5%;
+    margin-left: 10%;
 }
 
 .consultar > h2{

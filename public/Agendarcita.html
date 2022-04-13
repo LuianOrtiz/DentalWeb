@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Servicios</title>
+</head>
+
+<body>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <header>
+        <nav>
+            <!--logo-->
+            <div>
+                <a href="home.html">
+                    <img class="logo" src="assets/imgs/Logo.png" alt="logo">
+                </a>
+            </div>
+            <!--lista-->
+            <div>
+                <ul class="navbar-list">
+                    <li><a href="home.html" style="font-size: 22px;">Conócenos</a></li>
+                    <li><a href="#" style="font-size: 22px;">Agendar cita</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!--Banner
+        <section>
+            <div class="banner-agendar">
+            </div>
+        </section>
+    
+    -->
+
+    <!--Servicios-->
+    <section>
+        <div class="grid-servicios">
+            <div class="servicios container-b" id="servicios">
+                <h1>Contamos con los siguientes servicios</h1>
+                <ul>
+                    <li v-for="item in todoData">
+
+                        <button class="btn" type="button" data-bs-toggle="collapse" v-bind:data-bs-target="item.privateid"
+                        aria-expanded="false" v-bind:aria-controls="item.id">
+                        {{ item.buttonText }}
+                        </button>
+
+                        <div class="collapse" v-bind:id="item.id">
+                            <div class="card card-body">
+                                <span>{{ item.cardText }}</span>
+                                <ul v-if="item.li === 'true'" v-for="data in item.liData">
+                                    <br>
+                                    <li><strong>{{ data.text }}</strong></li>
+                                    {{ data.des }}
+                                </ul>
+                                <ul v-else="item.li === 'false'">
+                                    <br>{{ data.des }}
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="agendar container-b" id="agendar-cita">
+                <h2>Agenda tu cita</h2>
+                    <form class="form-agendar" v-for="todo in todos" id="agendar-citacion" >
+                        <label v-bind:for="todo.id"> {{ todo.des }} </label><br>
+                        <input  v-model="todo.valor" v-bind:type="todo.type" v-bind:id="todo.id" v-bind:name="todo.name"><br><br><br>
+                    </form>
+                    <button class="boton-personalizado-4 mb-5" id="btn-agendar" v-on:click="agregar_form">Agendar</button>
+            </div>
+        </div>
+    </section>
+
+    <!--Consultar tu cita-->
+    <section class="consultar container-b">
+        <div id="consultar-cita">
+            <h2>¿Ya tienes un folio?</h2>
+            <h2>Consulta los datos de tu cita</h2>
+            <label>Folio</label>
+            <input type="number" id="consultar-folio" v-model="foliocita">
+            <button id="btn-consultar" class="boton-personalizado-4" v-on:click="consul_cit">Consultar</button>
+            <div class="pt-5">
+                <p>¿No recuerdas tu folio? Mándanos un correo <a href="">aquí</a> </p>
+            </div>
+        </div>
+        <div id="folio-citaa">
+
+
+            <!-- Aquí va la wea qleada-->
+        </div>
+    </section>
+
+    <!--Reseñas-->
+    <section class="resenias">
+        <h2>Reseñas</h2>
+        <div class="grid-resenias" id="grid-rs">
+            <div class="resenia" v-for="inf in prt">
+                <p>{{ inf.text }}</p>
+                <b>{{ inf.name }}</b>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer-->
+    <footer>
+        <p>Copyright ® 2021 Nombre_Consultario </p>
+        <div class="footer-sociales">
+            <div class="whatsapp">
+                <img src="assets/icons/wa2.png" style="width: 20px;">
+            </div>
+            <p style="margin-right: 5%;">4431234567</p>
+            <div class="facebotrue">
+                <img src="assets/icons/fb.png" style="width: 20px;">
+            </div>
+            <p>consultorio_dentista</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- Libreria para axios-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="Scripts/citas-agendar.js"></script>
+    <script src="Scripts/cita-consultar.js"></script>
+    <script type="text/javascript" src="Scripts/General-Agendar.js"></script>
+</body>
+
+</html>

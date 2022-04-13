@@ -1,0 +1,393 @@
+body{
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #fff;
+}
+
+.container-b{
+    width: auto;
+    height: auto;
+    border-style: solid;
+    border-color: #000;
+    border-width: 0.1px;
+}
+
+.logo{
+    width: 15%;
+    height: auto;
+    max-width: 20%;
+}
+
+.navbar-list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    margin: 10px;
+}
+
+.navbar-list li{
+    display: block;
+    margin-right: 20px;
+    justify-content: space-between;
+}
+/*Banner*/
+.banner{
+    width: 100vw;
+    height: 95vh;
+    background-image: url('/public/assets/imgs/Banner.jpg');
+    background-size: cover;
+
+}
+
+.banner h1{
+    padding-left: 5%;
+    padding-top: 15%;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.banner-agendar{
+    width: 100%;
+    height: 30vh;
+    background-image: url('/public/assets/imgs/BannerCita.jpg');
+    background-size: cover;
+}
+/*Conocenos*/
+.conocenos{
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border: 0.1px solid rgb(255, 255, 255);
+}
+
+.conocenos > h2, .texto{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.conocenos > h2 {
+    margin-top: 5%;
+}
+
+.texto{
+    margin: 5%;
+}
+
+.boton{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+/**/
+/*Acerca de nosotros*/
+.acercade{
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    border: 0.1px solid rgb(255, 255, 255);
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+.acercade-grid{
+    width: 50vw;
+    height: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+
+.encabezado{
+    text-align: center;
+}
+
+.encabezado span{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.acercade-grid-item{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+.container > p {
+    max-height: max-content;
+    text-align: center;
+}
+
+#img-clinica{
+    margin: 0;
+    padding: 0;
+    width: 50vw;
+    height: 80vh;
+    background-image: url('../assets/imgs/ClinicaNosotros.jpg');
+    background-size: 100% 100%;
+}
+
+#img-doctor{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background-image: url('../assets/imgs/DoctorNosotros.jpg');
+    background-size: 100% 100%;
+}
+
+#img-nosotros{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background-image: url('../assets/imgs/NosotrosSonrisa.jpg');
+    background-size: 100% 100%;
+}
+/**/
+/*Personal*/
+.carousel-item{
+    max-height: 90vh;
+}
+/**/
+
+
+/*Consultorio*/
+.consultorio{
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+
+.consultorio-grid{
+    width: 50vw;
+    height: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+
+.iframe-container {
+    border: 0.1px solid rgb(255, 255, 255);
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative;
+}
+
+.iframe-container iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+ }
+
+#img-clinicaconsultorio{
+    margin: 0;
+    padding: 0;
+    width: 50vw;
+    height: 80vh;
+    background-image: url('../assets/imgs/ClinicaConsultorio.png');
+    background-size: 100% 100%;
+}
+
+#img-clinicaHerramientas2{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background-image: url('../assets/imgs/ClinicaHerramientas2.jpg');
+    background-size: 100% 100%;
+}
+
+footer{
+    background-color: #59d5fb;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 20vh;
+}
+
+.footer-sociales{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 5%;
+}
+
+.whatsapp{
+    margin-right: 0.25rem;
+    width: 20px;
+    height: auto;
+}
+
+.facebotrue{
+    margin-right: 0.25rem;
+    width: 20px;
+    height: auto;
+}
+/*Agendar*/
+.grid-servicios{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 0px;
+}
+
+.servicios{
+    width: 100%;
+    height: auto;
+    padding: 2em;
+}
+
+.servicios > h1{
+    font-size: 2em;
+
+}
+.servicios  li{
+    margin: 10px;
+    padding: 15px;
+}
+.servicios button{
+    font-size: 24px;
+}
+
+.agendar{
+    width: 100%;
+    height: auto;
+    padding-left: 2em;
+}
+
+.resenias{
+    width: 100%;
+    height: auto;
+}
+
+.resenias > h2{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+
+.grid-resenias{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 0px;
+}
+
+.resenia{
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+    text-align: center;
+}
+
+
+.boton-personalizado-4 {
+    text-decoration:none;
+    font-weight: 300;
+    font-size: 20px;
+    color:#ffff;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-left:40px;
+    padding-right:40px;
+    background-color:#79d1c3;
+    border-color: #d8d8d8;
+    border-width: 3px;
+    border-style: solid;
+    border-radius:10px;
+    margin-left: 150px;
+    }
+
+    a:hover{
+        text-decoration:none;
+        color: #c9fdd7;
+        cursor:pointer;
+    }
+
+    a:link, a:visited, a:active {
+        text-decoration:none;
+    } 
+
+.agendar h2{
+    margin-left: 150px;
+    margin-top: 25px;
+}
+
+.form-agendar{
+    margin-left: 150px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+label{
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+input{
+    background-color: #EEECEC;
+    border-color: #6892D5;
+    width: 30%;
+    height: 3em;
+    
+}
+
+#btn-agendar{
+    align-self: flex-end;
+    margin-top: 5%;
+}
+
+.consultar{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: auto;
+}
+
+.consultar > div{
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    margin-left: 10%;
+}
+
+.consultar > h2{
+    font-weight: bold;
+}
+
+#consultar-folio{
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#btn-consultar{
+    align-self: flex-end;
+}

@@ -16,10 +16,10 @@ app.use(
 )
 
 const connection = mysql.createConnection({
-    host:'127.0.0.1',
-    user:'root',
-    password:'luchoSql123',
-    database:'dentalweb'
+    host:'',
+    user:'',
+    password:'',
+    database:''
 })
 
 connection.connect(function(err){
@@ -69,64 +69,6 @@ app.post('/sendcita', async (request, response) => {
     
     
 })
-
-
-/*
-app.post('/sendcita', async (request, response) => {
-    const sql = 'INSERT INTO citas SET ?';
-    console.log(request.body);
-
-    //var citCit = getCitas(request, response);
-    $query_paciente = "Select max(id) as id FROM pacientes";
-    //const id_pac = await sub_consultar(request, response, $query_paciente);
-    $query_servicio = `SELECT id FROM servicios WHERE descripcion = '${request.body.servicio}'`;
-    //const id_ser = await sub_consultar(request, response, $query_servicio);
-
-    function kk() {
-        Promise.resolve(Promise.all([Promise.resolve( sub_consultar(request, response, $query_servicio)),
-            Promise.resolve( sub_consultar(request, response, $query_paciente)) 
-        ])
-        ).then(([p,q]) => {
-            const citaObj = {
-                fecha_cita: request.body.fecha_cita,
-                hora_cita: request.body.hora_cita,
-                id_servicio: p,
-                id_paciente: q,
-                id_dentista: 2
-            }
-            console.log("papa" +citaObj);
-            connection.query(sql, citaObj, (error, rows, fields) => {
-                if(error) console.log(error);
-                console.log("cita creada");
-            })
-        })
-    }
-
-    const getCitas = async (request, response) => {
-        var valorCit = []
-        $query_paciente = "Select max(id) as id FROM pacientes";
-        valorCit[0] = await sub_consultar(request, response, $query_paciente);
-        console.log("valorCit 2:" +valorCit[0]);
-        $query_servicio = `SELECT id FROM servicios WHERE descripcion = '${request.body.servicio}'`;
-        valorCit[1] = await sub_consultar(request, response, $query_servicio);
-        console.log("valorCit 2:" +valorCit[1]);
-    
-        return citaObj = {
-            fecha_cita: request.body.fecha_cita,
-            hora_cita: request.body.hora_cita,
-            id_servicio: await Promise.resolve( sub_consultar(request, response, $query_servicio)),
-            id_paciente: await Promise.resolve( sub_consultar(request, response, $query_paciente)),
-            id_dentista: 2
-        }
-    
-    }
-    
-        kk()
-
-})
-*/
-
-
 
 const consultar = async (req,res,$query) => {
     connection.query($query, await function(err,rows,flieds){
